@@ -50,6 +50,7 @@
             android:layout_marginBottom="16dp" />
 
         <Button
+            android:id="@+id/loginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Log in"
@@ -59,8 +60,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Already have an account? Sign up"
+            android:text="Already have an account?"
             android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/signUpButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Sign up"
+            android:layout_marginBottom="16dp" />
 
     </LinearLayout>
 
