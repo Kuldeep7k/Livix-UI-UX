@@ -6,9 +6,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
-import com.ghouls.livix.MainActivity
-import com.ghouls.livix.R
 import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginActivity : AppCompatActivity() {
