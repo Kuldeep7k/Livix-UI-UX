@@ -7,8 +7,6 @@ import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
-import com.ghouls.livix.R
 import com.google.firebase.firestore.FirebaseFirestore
 
 class SignUpActivity : AppCompatActivity() {
@@ -36,7 +34,6 @@ class SignUpActivity : AppCompatActivity() {
         nextButton = findViewById(R.id.nextButton)
         goBack = findViewById(R.id.goBackButton)
 
-
         nextButton.setOnClickListener {
             val username = usernameEditText.text.toString().trim()
             val email = emailEditText.text.toString().trim()
@@ -44,7 +41,23 @@ class SignUpActivity : AppCompatActivity() {
             val confirmPassword = confirmPasswordEditText.text.toString().trim()
 
             if (validateInput(username, email, password, confirmPassword)) {
-                addUserToFirestore(username, email, password)
+                // Add the user to the "users" collection
+                firestore.collection("users")
+                    .add(hashMapOf(
+                        "username" to username,
+                        "email" to email,
+                        "password" to password
+                    ))
+                    .addOnSuccessListener { documentReference ->
+                        // User added successfully
+                        showToast("User created successfully")
+                        navigateToUserDetailsActivity()
+                    }
+                    .addOnFailureListener { exception ->
+                        // An error occurred while adding the user
+                        val error = exception.message ?: "Unknown error"
+                        showToast("Error adding user: $error")
+                    }
             }
         }
 
@@ -88,27 +101,6 @@ class SignUpActivity : AppCompatActivity() {
         return true
     }
 
-    private fun addUserToFirestore(username: String, email: String, password: String) {
-        // Create a new user document with a unique ID
-        val user = HashMap<String, Any>()
-        user["username"] = username
-        user["email"] = email
-        user["password"] = password
-
-        // Add the user to the "users" collection
-        firestore.collection("users")
-            .add(user)
-            .addOnSuccessListener { documentReference ->
-                // User added successfully
-                showToast("User created successfully")
-                navigateToUserDetailsActivity()
-            }
-            .addOnFailureListener { exception ->
-                // An error occurred while adding the user
-                showToast("Error adding user: ${exception.message}")
-            }
-    }
-
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
@@ -117,6 +109,5 @@ class SignUpActivity : AppCompatActivity() {
         val userDetailsIntent = Intent(this, addDetails::class.java)
         startActivity(userDetailsIntent)
     }
-
 
 }
