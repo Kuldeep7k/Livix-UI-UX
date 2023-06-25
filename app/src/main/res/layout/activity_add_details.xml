@@ -1,15 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/gradient_background"
-        android:scaleType="centerCrop"
-        android:contentDescription="Gradient Background" />
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,7 +21,11 @@
                 android:text="Livix"
                 android:textSize="54sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="32dp" />
+                android:layout_marginTop="16dp"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="32dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal" />
 
             <ImageView
                 android:id="@+id/profileImageView"
@@ -45,46 +42,80 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Upload Photo"
+                android:textColor="@android:color/white"
+                android:background="@drawable/button_border_white"
                 android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="First Name:"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
 
             <EditText
                 android:id="@+id/firstNameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="First Name"
+                android:hint="Enter your first name"
                 android:background="@android:color/white"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:padding="10dp"
                 android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Name:"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
 
             <EditText
                 android:id="@+id/lastNameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Last Name"
+                android:hint="Enter your last name"
                 android:background="@android:color/white"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:padding="10dp"
                 android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Middle Name:"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
 
             <EditText
                 android:id="@+id/middleNameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Middle Name"
+                android:hint="Enter your middle name"
                 android:background="@android:color/white"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:padding="10dp"
                 android:layout_marginBottom="16dp" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location:"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
             <EditText
                 android:id="@+id/locationEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Location"
+                android:hint="Enter your location"
                 android:background="@android:color/white"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
@@ -96,6 +127,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Save"
+                android:textColor="@android:color/white"
+                android:background="@drawable/button_border_white"
                 android:layout_marginBottom="16dp" />
 
         </LinearLayout>

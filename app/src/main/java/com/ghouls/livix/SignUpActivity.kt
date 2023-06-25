@@ -1,3 +1,5 @@
+package com.ghouls.livix
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -5,6 +7,7 @@ import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.ghouls.livix.R
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -15,6 +18,7 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var passwordEditText: EditText
     private lateinit var confirmPasswordEditText: EditText
     private lateinit var nextButton: Button
+    private lateinit var goBack: Button
     private lateinit var firestore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +34,8 @@ class SignUpActivity : AppCompatActivity() {
         passwordEditText = findViewById(R.id.passwordEditText)
         confirmPasswordEditText = findViewById(R.id.confirmPasswordEditText)
         nextButton = findViewById(R.id.nextButton)
+        goBack = findViewById(R.id.goBackButton)
+
 
         nextButton.setOnClickListener {
             val username = usernameEditText.text.toString().trim()
@@ -40,6 +46,11 @@ class SignUpActivity : AppCompatActivity() {
             if (validateInput(username, email, password, confirmPassword)) {
                 addUserToFirestore(username, email, password)
             }
+        }
+
+        goBack.setOnClickListener {
+            val goToLogin = Intent(this, LoginActivity::class.java)
+            startActivity(goToLogin)
         }
     }
 
@@ -106,4 +117,6 @@ class SignUpActivity : AppCompatActivity() {
         val userDetailsIntent = Intent(this, addDetails::class.java)
         startActivity(userDetailsIntent)
     }
+
+
 }

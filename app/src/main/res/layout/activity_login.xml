@@ -1,21 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/gradient_background"
-        android:scaleType="centerCrop"
-        android:contentDescription="Gradient Background" />
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center"
+        android:gravity="start|center_vertical"
         android:padding="16dp">
 
         <TextView
@@ -24,24 +17,42 @@
             android:text="Livix"
             android:textSize="54sp"
             android:textStyle="bold"
-            android:layout_marginBottom="32dp" />
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="32dp"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username:"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
 
         <EditText
             android:id="@+id/usernameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
+            android:hint="Enter your username"
             android:background="@android:color/white"
             android:textColor="@android:color/black"
             android:textStyle="bold"
             android:padding="10dp"
             android:layout_marginBottom="16dp" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password:"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
+
         <EditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="Enter your password"
             android:inputType="textPassword"
             android:background="@android:color/white"
             android:textColor="@android:color/black"
@@ -54,6 +65,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Log in"
+            android:textColor="@android:color/white"
+            android:background="@drawable/button_border_white"
             android:layout_marginBottom="16dp" />
 
         <TextView
@@ -61,6 +74,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Already have an account?"
+            android:textColor="@android:color/white"
             android:layout_marginTop="16dp" />
 
         <Button
@@ -69,6 +83,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Sign up"
+            android:textColor="@android:color/white"
+            android:background="@drawable/button_border_white"
             android:layout_marginBottom="16dp" />
 
     </LinearLayout>
